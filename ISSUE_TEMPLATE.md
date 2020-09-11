@@ -43,7 +43,7 @@ administrators can access it.
 
 ###### Do you use EV certificates as embedded certificates in the SHIM?
 We have embedded EV certificate
-https://github.com/KLC-group/shim-review/blob/KLC-Group-shim-20200904/KLC_Group_LLC.der
+https://github.com/KLC-group/shim-review/blob/KLC-Group-shim-20200911/KLC_Group_LLC.der
 
 ###### What is the origin and full version number of your bootloader (GRUB or other)?
 We boot EFI stub-based Linux kernel 5.4 with root file system.
