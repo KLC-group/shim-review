@@ -11,8 +11,8 @@ Make sure you have provided the following information:
 Our submission tree is at: https://github.com/KLC-group/shim-review
 
 ###### What organization or people are asking to have this signed:
-KLC Group LLC 
-https://klc-group.com
+KLC Group LLC, 
+https://klc-group.com,  
 https://CipherDriveOne.com 
 
 ###### What product or service is this for:
@@ -43,7 +43,7 @@ administrators can access it.
 
 ###### Do you use EV certificates as embedded certificates in the SHIM?
 We have embedded EV certificate
-https://github.com/KLC-group/shim-review/blob/KLC-Group-shim-20200911/KLC_Group_LLC.der
+https://github.com/KLC-group/shim-review/blob/KLC-Group-shim-20200912/KLC_Group_LLC.der
 
 ###### What is the origin and full version number of your bootloader (GRUB or other)?
 We boot EFI stub-based Linux kernel 5.4 with root file system.

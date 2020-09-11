@@ -18,8 +18,8 @@ Here's the template:
 -------------------------------------------------------------------------------
 What organization or people are asking to have this signed:
 -------------------------------------------------------------------------------
-KLC Group LLC 
-https://klc-group.com
+KLC Group LLC, 
+https://klc-group.com, 
 https://CipherDriveOne.com 
 
 -------------------------------------------------------------------------------
@@ -68,7 +68,7 @@ https://github.com/rhboot/shim/tree/15
 -------------------------------------------------------------------------------
 URL for a repo that contains the exact code which was built to get this binary:
 -------------------------------------------------------------------------------
-https://github.com/KLC-group/shim-review/tree/KLC-Group-shim-20200911
+https://github.com/KLC-group/shim-review/tree/KLC-Group-shim-20200912
 
 -------------------------------------------------------------------------------
 What patches are being applied and why:
@@ -79,13 +79,12 @@ No additional patches are applied.
 What OS and toolchain must we use to reproduce this build?  Include where to find it, etc.  We're going to try to reproduce your build as close as possible to verify that it's really a build of the source tree you tell us it is, so these need to be fairly thorough. At the very least include the specific versions of gcc, binutils, and gnu-efi which were used, and where to find those binaries.
 -------------------------------------------------------------------------------
 This repo contains the Dockerfile and app.sh script we use to build shim:
-https://github.com/KLC-group/shim-review/tree/KLC-Group-shim-20200911
+https://github.com/KLC-group/shim-review/tree/KLC-Group-shim-20200912
 
 -------------------------------------------------------------------------------
 Which files in this repo are the logs for your build?   This should include logs for creating the buildroots, applying patches, doing the build, creating the archives, etc.
 -------------------------------------------------------------------------------
-[your text here]
-https://github.com/KLC-group/shim-review/tree/KLC-Group-shim-20200911/build.log
+https://github.com/KLC-group/shim-review/tree/KLC-Group-shim-20200912/build.log
 
 -------------------------------------------------------------------------------
 Add any additional information you think we may need to validate this shim
