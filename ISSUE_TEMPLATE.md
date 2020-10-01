@@ -3,7 +3,8 @@ Make sure you have provided the following information:
  - [x] link to your code branch cloned from rhboot/shim-review in the form user/repo@tag
  - [x] completed README.md file with the necessary information
  - [x] shim.efi to be signed
- - [x] public portion of your certificate embedded in shim (the file passed to VENDOR_CERT_FILE)
+ - [x] public portion of your certificate(s) embedded in shim (the file passed to VENDOR_CERT_FILE)
+ - [ ] binaries, for which hashes are added do vendor_db ( if you use vendor_db and have hashes whitelisted )
  - [x] any extra patches to shim via your own git tree or as files
  - [x] any extra patches to grub via your own git tree or as files
  - [x] build logs
@@ -43,7 +44,19 @@ administrators can access it.
 
 ###### Do you use EV certificates as embedded certificates in the SHIM?
 We have embedded EV certificate
-https://github.com/KLC-group/shim-review/blob/KLC-Group-shim-20200912/KLC_Group_LLC.der
+https://github.com/KLC-group/shim-review/blob/KLC-Group-shim-20201001/KLC_Group_LLC.der
+
+###### If you use new vendor_db functionality, are any hashes whitelisted, and if yes: for what binaries ?
+The product binary CipherDrivex64.efi is signed using KLC-group certificate. There are no other whitelisted hashes.
+
+###### Is kernel upstream commit 75b0cea7bf307f362057cc778efe89af4c615354 present in your kernel, if you boot chain includes a linux kernel ?
+We use Linux kernel 5.4 kernel with these commits applied
+
+###### if SHIM is loading grub2 bootloader, is CVE CVE-2020-10713 fixed ?
+This CVE is not applicable to CipherDrive as grub2 is not used
+
+##### Did you change your certificate strategy, so that affected by CVE CVE-2020-10713 grub2 bootloaders can not be verified ?
+This CVE is not applicable to CipherDrive as grub2 is not used
 
 ###### What is the origin and full version number of your bootloader (GRUB or other)?
 We boot EFI stub-based Linux kernel 5.4 with root file system.
@@ -57,7 +70,7 @@ CipherDrive provides relatively easy to integrity control environment for authen
 the user and start the protected Operating System.
 
 ###### Does your SHIM load any loaders that support loading unsigned kernels (e.g. GRUB)?
-No
+Our loader does not load unsigned kernels
 
 ###### What kernel are you using? Which patches does it includes to enforce Secure Boot?
 Linux Kernel 5.4 with latest patches applied.
