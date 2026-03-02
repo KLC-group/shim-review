@@ -1,0 +1,29 @@
+
+FROM ubuntu:noble
+    
+RUN apt-get update && \
+    apt-get install -y \
+        curl \
+        tar \
+        git \
+        make \
+        bzip2 \
+        gcc \
+        g++ && \
+    rm -rf /var/lib/apt/lists/*
+
+
+RUN mkdir -p /shim
+
+
+#checkout the source
+RUN curl -L -O https://github.com/rhboot/shim/releases/download/16.1/shim-16.1.tar.bz2 && tar -xvjf shim-16.1.tar.bz2 -C /shim
+
+RUN git clone https://github.com/KLC-group/shim-review.git \
+    && cd shim-review \
+    && git checkout KLC-Group-shim-20260302
+
+WORKDIR  /shim/shim-16.1/
+RUN cp /shim-review/KLC_Group_LLC.der ./
+RUN make DEFAULT_LOADER="LOADER.EFI" VENDOR_CERT_FILE=KLC_Group_LLC.der > ../build.x86_64.log 2>&1
+RUN sha256sum shimx64.efi >> ../build.x86_64.log 2>&1
