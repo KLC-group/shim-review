@@ -644,4 +644,4 @@ objcopy -D -j .text -j .sdata -j .data -j .data.ident \
 	--target efi-app-aarch64 fbaa64.so fbaa64.efi
 ./post-process-pe -vv  fbaa64.efi
 validate_nx_compat():380: NX Compatibility flag is not set
-0ede4a44c5df0f60427b65e447f3b142a639ddd1d92278c3186731078cf4ec1d  shimaa64.efi
+028410ed38d612d60b7f93ffcdfc46e58f6f1034a70d8cb889fe7cb5b02a3868  shimaa64.efi

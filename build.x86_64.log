@@ -647,4 +647,4 @@ objcopy -D -j .text -j .sdata -j .data -j .data.ident \
 	--target efi-app-x86_64 fbx64.so fbx64.efi
 ./post-process-pe -vv  fbx64.efi
 validate_nx_compat():380: NX Compatibility flag is not set
-fd460a6b51f6fa238d87e2101cb632ff401e22f6fa6fe758546af4bc4629d8db  shimx64.efi
+45005555eecd617f8fe263b790304d90909c77ff42e12f985861310be32d33da  shimx64.efi

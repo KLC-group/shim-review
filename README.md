@@ -259,7 +259,7 @@ There is no previously signed shim
 Hint: upstream kernels should have all these applied, but if you ship your own heavily-modified older kernel version, that is being maintained separately from upstream, this may not be the case.  
 If you are shipping an older kernel, double-check your sources; maybe you do not have all the patches, but ship a configuration, that does not expose the issue(s).
 *******************************************************************************
-Management application uses linux kernel 6.6.133. All these patches are present in this kernel.
+Management application uses linux kernel 6.6.113. All these patches are present in this kernel.
 
 *******************************************************************************
 ### How does your signed kernel enforce lockdown when your system runs with Secure Boot enabled?
@@ -294,7 +294,7 @@ Yes
 ### If you use vendor_db functionality of providing multiple certificates and/or hashes please briefly describe your certificate setup.
 ### If there are allow-listed hashes please provide exact binaries for which hashes are created via file sharing service, available in public with anonymous access for verification.
 *******************************************************************************
-KLC-group certificate is stored in a repository in a highly secured area on a separate computer (normally disconnected) only used for signing and only a few trusted administrators can access it. The product binary CipherDrivex64.efi is signed using this certificate.
+The certificate’s private key is stored in a YubiHSM in a highly secured area on a separate computer (normally disconnected) only used for signing and only a few trusted administrators can access it. The product binary CipherDrivex64.efi is signed using this key.
 
 *******************************************************************************
 ### If you are re-using the CA certificate from your last shim binary, you will need to add the hashes of the previous GRUB2 binaries exposed to the CVEs mentioned earlier to vendor_dbx in shim. Please describe your strategy.
@@ -331,14 +331,14 @@ This is the first time we are going through the latest shim process.
 *******************************************************************************
 ### What is the SHA256 hash of your final shim binary?
 *******************************************************************************
-fd460a6b51f6fa238d87e2101cb632ff401e22f6fa6fe758546af4bc4629d8db  shimx64.efi  
-0ede4a44c5df0f60427b65e447f3b142a639ddd1d92278c3186731078cf4ec1d  shimaa64.efi
+45005555eecd617f8fe263b790304d90909c77ff42e12f985861310be32d33da  shimx64.efi  
+028410ed38d612d60b7f93ffcdfc46e58f6f1034a70d8cb889fe7cb5b02a3868  shimaa64.efi
 
 *******************************************************************************
 ### How do you manage and protect the keys used in your shim?
 Describe the security strategy that is used for key protection. This can range from using hardware tokens like HSMs or Smartcards, air-gapped vaults, physical safes to other good practices.
 *******************************************************************************
-We have a repository in a highly secured area on a separate computer (normally disconnected) only used during signing with only a few trusted administrators having access to it.
+We use YubiHSM in a highly secured area on a separate computer (normally disconnected) only used during signing with only a few trusted administrators having access to it.
 
 *******************************************************************************
 ### Do you use EV certificates as embedded certificates in the shim?
@@ -366,7 +366,19 @@ If you are using a downstream implementation of GRUB2 (e.g. from Fedora or Debia
 
 Hint: run `objcopy --dump-section .sbat=/dev/stdout YOUR_EFI_BINARY` to get these entries. Paste them here. Preferably surround each listing with three backticks (\`\`\`), so they render well.
 *******************************************************************************
-We are using the latest shim process for the first time and we do not have any revoked components at this time. We will be using SBAT entries in the future when needed.
+shim:
+```
+sbat,1,SBAT Version,sbat,1,https://github.com/rhboot/shim/blob/main/SBAT.md
+shim,4,UEFI shim,shim,1,https://github.com/rhboot/shim
+shim.klc,1,KLC Group LLC,shim,16.1,mailto:info@klc-group.com
+```
+
+loader:
+```
+sbat,1,SBAT Version,sbat,1,https://github.com/rhboot/shim/blob/main/SBAT.md
+systemd,1,systemd,systemd-boot,251.1,mailto:info@klc-group.com
+systemd.klc,1,KLC Group LLC,systemd-boot,251.1,mailto:info@klc-group.com
+```
 
 *******************************************************************************
 ### If shim is loading GRUB2 bootloader, which modules are built into your signed GRUB2 image?

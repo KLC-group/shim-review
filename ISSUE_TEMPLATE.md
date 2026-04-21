@@ -12,13 +12,13 @@ Confirm the following are included in your repo, checking each box:
 *******************************************************************************
 ### What is the link to your tag in a repo cloned from rhboot/shim-review?
 *******************************************************************************
-https://github.com/KLC-group/shim-review/releases/tag/KLC-Group-shim-x86_64-aarch64-20260302
+https://github.com/KLC-group/shim-review/releases/tag/KLC-Group-shim-x86_64-aarch64-20260421
 
 *******************************************************************************
 ### What is the SHA256 hash of your final SHIM binary?
 *******************************************************************************
-fd460a6b51f6fa238d87e2101cb632ff401e22f6fa6fe758546af4bc4629d8db  shimx64.efi  
-0ede4a44c5df0f60427b65e447f3b142a639ddd1d92278c3186731078cf4ec1d  shimaa64.efi
+45005555eecd617f8fe263b790304d90909c77ff42e12f985861310be32d33da  shimx64.efi  
+028410ed38d612d60b7f93ffcdfc46e58f6f1034a70d8cb889fe7cb5b02a3868  shimaa64.efi
 
 *******************************************************************************
 ### What is the link to your previous shim review request (if any, otherwise N/A)?
